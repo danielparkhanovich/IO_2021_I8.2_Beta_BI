@@ -19,7 +19,7 @@ ____
 
 ### Nazewnictwo
 Ticket - nazwa tasku, również branchu lokalnego developera, który pracuje nad tym taskiem.
-Szablon ticketu - typ/task_ID_taskNameWithCamelCase
+Szablon ticketu - **typ/task_ID_taskNameWithCamelCase**
 
 typy:
  • feature - w przypadku wprowadzania nowej funkcjonalności.
