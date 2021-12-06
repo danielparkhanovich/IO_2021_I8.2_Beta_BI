@@ -28,8 +28,8 @@ typy:
 przykładowa nazwa branchu - **feature/1_addRest**
 
 ### Role
-* Developer - członek zespołu który pracuje nad projektem. Pracuje na branchu lokalnym, po zrobieniu tasku, puszuje go i robi **Pull Request** - skrótowo **PR**.
-* Maintainer - członek zespołu odpowiedzialny za stan repozytorium. Akceptuje/odrzuca **Pull Requesty** na master, rozwiązuje ewentualne konflikty. Również jest developerem.
+* **Developer** - członek zespołu który pracuje nad projektem. Pracuje na branchu lokalnym, po zrobieniu tasku, puszuje go i robi **Pull Request** - skrótowo **PR**.
+* **Maintainer** - członek zespołu odpowiedzialny za stan repozytorium. Akceptuje/odrzuca **Pull Requesty** na master, rozwiązuje ewentualne konflikty. Również jest developerem.
  
 ### !!! UWAGA: !!!
 Dewelopery nie mogą puszować zmian na główny branch - master. 
