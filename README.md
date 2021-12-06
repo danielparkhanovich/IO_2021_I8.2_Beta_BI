@@ -22,26 +22,27 @@ Ticket - nazwa tasku, również branchu lokalnego developera, który pracuje nad
 Szablon ticketu - **typ/task_ID_taskNameWithCamelCase**
 
 typy:
- • feature - w przypadku wprowadzania nowej funkcjonalności.
- • bugfix  - w przypadku fixowania bugów.
+ * **feature** - w przypadku wprowadzania nowej funkcjonalności.
+ * **bugfix**  - w przypadku fixowania bugów.
 
-przykładowa nazwa branchu - feature/1_addRest
+przykładowa nazwa branchu - **feature/1_addRest**
 
 ### Role
-• Developer - członek zespołu który pracuje nad projektem. Pracuje na branchu lokalnym, po zrobieniu tasku, puszuje go i robi **Pull Request** - skrótowo **PR**.
-• Maintainer - członek zespołu odpowiedzialny za stan repozytorium. Akceptuje/odrzuca **Pull Requesty** na master, rozwiązuje ewentualne konflikty. Również jest developerem.
+* Developer - członek zespołu który pracuje nad projektem. Pracuje na branchu lokalnym, po zrobieniu tasku, puszuje go i robi **Pull Request** - skrótowo **PR**.
+* Maintainer - członek zespołu odpowiedzialny za stan repozytorium. Akceptuje/odrzuca **Pull Requesty** na master, rozwiązuje ewentualne konflikty. Również jest developerem.
  
-!!! Dewelopery nie mogą puszować zmian na główny branch - master. 
-**UWAGA:** Aby wprowadzić swoje zmiany do kodu muszą zrobić z poziomu interfejsu graficznego GitHuba **Pull Request** swojego branchu.
-Tylko Maintainer repozytorium może wprowadzać zmiany na master. !!!
+### !!! UWAGA: !!!
+Dewelopery nie mogą puszować zmian na główny branch - master. 
+Aby wprowadzić swoje zmiany do kodu muszą zrobić z poziomu interfejsu graficznego GitHuba **Pull Request** swojego branchu.
+Tylko Maintainer repozytorium może wprowadzać zmiany na master (akceptować Pull Requesty).
 
 Role zespołu:
 
 **Maintainer**
-  o Daniel Parkhanovich
+  * Daniel Parkhanovich
 
 **Developerzy:**
-  o Dominik Ziębicki
-  o Paweł Tomaszewski
-  o Daniel Parkhanovich
-  o Ivan Bilunyk
+  * Dominik Ziębicki
+  * Paweł Tomaszewski
+  * Daniel Parkhanovich
+  * Ivan Bilunyk
