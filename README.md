@@ -3,16 +3,16 @@ Building Info Project
 
 ____
 ## Struktura danych
-• Lokacja to budynek, poziom, lub pomieszczenie
-• Budynek może składać się z poziomów a te z pomieszczeń
-• Każda lokalizacja jest charakteryzowana przez:
-   o id – unikalny identyfikator
-   o name – opcjonalna nazwa lokalizacji
-• Pomieszczenie dodatkowo jest charakteryzowane przez:
-   o area = powierzchnia w m^2
-   o cube = kubatura pomieszczenia w m^3
-   o heating = poziom zużycia energii ogrzewania (float)
-   o light – łączna moc oświetlenia
+* Lokacja to budynek, poziom, lub pomieszczenie
+* Budynek może składać się z poziomów a te z pomieszczeń
+* Każda lokalizacja jest charakteryzowana przez:
+   ** id – unikalny identyfikator
+   ** name – opcjonalna nazwa lokalizacji
+* Pomieszczenie dodatkowo jest charakteryzowane przez:
+   ** area = powierzchnia w m^2
+   ** cube = kubatura pomieszczenia w m^3
+   ** heating = poziom zużycia energii ogrzewania (float)
+   ** light – łączna moc oświetlenia
 
 ____
 ## Zasady komitowania na repo ! (info dla członków zespołu)
