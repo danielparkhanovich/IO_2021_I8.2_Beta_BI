@@ -9,10 +9,10 @@ ____
    * id – unikalny identyfikator
    * name – opcjonalna nazwa lokalizacji
 * Pomieszczenie dodatkowo jest charakteryzowane przez:
-   * area = powierzchnia w m^2
-   * cube = kubatura pomieszczenia w m^3
+   * area = powierzchnia w m^2 (float)
+   * cube = kubatura pomieszczenia w m^3 (float)
    * heating = poziom zużycia energii ogrzewania (float)
-   * light – łączna moc oświetlenia
+   * light – łączna moc oświetlenia (float)
 
 ____
 ## Zasady komitowania na repo ! (info dla członków zespołu)
