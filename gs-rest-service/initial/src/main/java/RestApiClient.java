@@ -4,14 +4,15 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Scanner;
+
+import com.example.restservice.RestServiceApplication;
 import org.json.JSONObject;
-import Structures.Room;
-import Structures.Floor;
-import Structures.Building;
 
 public class RestApiClient {
 
     public static void main(String[] args) throws IOException{
+
+        RestServiceApplication.main(args);
 
         Scanner scanner = new Scanner(System.in);
 

@@ -1,6 +1,8 @@
-package Structures;
+package com.example.restservice.Structures;
 
+import javax.persistence.Entity;
 
+@Entity
 public class Room extends Location {
 
     private float area;
@@ -8,15 +10,15 @@ public class Room extends Location {
     private float heating;
     private float light;
 
-    public Room(int id) {
+    public Room(Long id) {
         super(id);
     }
 
-    public Room(int id, String name) {
+    public Room(Long id, String name) {
         super(id, name);
     }
 
-    public Room(int id, String name, float area, float cube, float heating, float light) {
+    public Room(Long id, String name, float area, float cube, float heating, float light) {
         super(id, name);
         this.area = area;
         this.cube = cube;
