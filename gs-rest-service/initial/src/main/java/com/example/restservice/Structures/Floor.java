@@ -5,15 +5,33 @@ import javax.persistence.Entity;
 @Entity
 public class Floor extends Location {
 
-    private Room[] rooms;
+    private final Room[] rooms;
 
-    public Floor(Long id, Room[] rooms) {
-        super(id);
+    public Floor(){
+        rooms = new Room[0];
+    }
+
+    public Floor(Room[] rooms) {
+        super();
         this.rooms = rooms;
     }
 
-    public Floor(Long id, String name, Room[] rooms) {
-        super(id, name);
+    public Floor(String name, Room[] rooms) {
+        super(name);
         this.rooms = rooms;
+    }
+
+    public Room[] getRooms() {
+        return rooms;
+    }
+
+    @Override
+    public String toString(String interspace) {
+        String msg = super.toString(interspace);
+        for (Room room : rooms) {
+            msg += "----------------\n";
+            msg += room.toString(interspace);
+        }
+        return msg;
     }
 }

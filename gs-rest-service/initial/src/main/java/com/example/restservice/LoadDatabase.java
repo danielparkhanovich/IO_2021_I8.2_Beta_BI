@@ -18,7 +18,7 @@ class LoadDatabase {
     CommandLineRunner initDatabase() {
         RestController instance = RestController.getInstance();
         return args -> {
-            log.info("Preloading " + instance.repository.save(new Building(0L, new Floor[]{new Floor(0L, new Room[]{new Room(0L)})})));
+            log.info("Preloading " + instance.repository.save(new Building(new Floor[]{new Floor(new Room[]{new Room()})})));
         };
     }
 }

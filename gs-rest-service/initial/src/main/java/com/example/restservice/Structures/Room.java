@@ -10,16 +10,16 @@ public class Room extends Location {
     private float heating;
     private float light;
 
-    public Room(Long id) {
-        super(id);
+    public Room() {
+        super();
     }
 
-    public Room(Long id, String name) {
-        super(id, name);
+    public Room(String name) {
+        super(name);
     }
 
-    public Room(Long id, String name, float area, float cube, float heating, float light) {
-        super(id, name);
+    public Room(String name, float area, float cube, float heating, float light) {
+        super(name);
         this.area = area;
         this.cube = cube;
         this.heating = heating;
@@ -42,4 +42,14 @@ public class Room extends Location {
         return light;
     }
 
+    @Override
+    public String toString(String interspace) {
+        interspace += "---> ";
+        String msg = super.toString(interspace);
+        msg += interspace + "area: " + Float.toString(area) + "\n"
+                + interspace + "cube: " + Float.toString(cube) + "\n"
+                + interspace + "heating: " + Float.toString(heating) + "\n"
+                + interspace + "light: " + Float.toString(light);
+        return msg;
+    }
 }

@@ -1,21 +1,19 @@
 package com.example.restservice.Structures;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public abstract class Location {
 
-    private @Id @GeneratedValue Long id;
+    @Id
+    @GeneratedValue
+    private Long id;
     private String name;
 
-    public Location(Long id){
-        this.id = id;
+    public Location(){
     }
 
-    public Location(Long id, String name){
-        this.id = id;
+    public Location(String name){
         this.name = name;
     }
 
@@ -29,5 +27,10 @@ public abstract class Location {
 
     public void setId(long id){
         this.id = id;
+    }
+
+    public String toString(String interspace) {
+        return interspace + "Location id: " + Long.toString(id) + " " + name + "\n"
+                + interspace + "Type: " + getClass() + "\n";
     }
 }

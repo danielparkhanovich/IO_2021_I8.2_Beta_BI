@@ -1,6 +1,9 @@
 package com.example.restservice;
 
 import com.example.restservice.Structures.Building;
+import com.example.restservice.Structures.Floor;
+import com.example.restservice.Structures.Location;
+import com.example.restservice.Structures.Room;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -37,6 +40,26 @@ class BuildingRepository {
         return null;
     }
 
+    public Location findLocationById(Long id){
+        for (HashMap.Entry<Long, Building> entry : buildingsDict.entrySet()) {
+            Building building = entry.getValue();
+            if (Objects.equals(building.getId(), id)) {
+                return building;
+            }
+            for (Floor floor : building.getFloors()) {
+                if (Objects.equals(floor.getId(), id)) {
+                    return floor;
+                }
+                for (Room room : floor.getRooms()) {
+                    if (Objects.equals(room.getId(), id)) {
+                        return room;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
     public void deleteById(Long aLong) {
         buildingsDict.remove(aLong);
     }
@@ -55,18 +78,30 @@ class BuildingRepository {
     }
 
     public Building save(Building building) {
-        long newId = getMaxKey() + 1;
+        long newId = getNextKey();
+
+        for (Floor floor : building.getFloors())
+        {
+            for (Room room : floor.getRooms()){
+                room.setId(newId);
+                newId += 1;
+            }
+            floor.setId(newId);
+            newId += 1;
+        }
+        building.setId(newId);
+
         buildingsDict.put(newId, building);
         return building;
     }
 
-    private Long getMaxKey(){
+    private Long getNextKey(){
         long maxKey = 0L;
         for (HashMap.Entry<Long, Building> entry : buildingsDict.entrySet())
         {
             if (entry.getKey() > maxKey)
             {
-                maxKey = entry.getKey();
+                maxKey = entry.getKey() + 1;
             }
         }
         return maxKey;

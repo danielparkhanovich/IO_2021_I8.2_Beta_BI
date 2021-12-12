@@ -28,7 +28,7 @@ public class RestController {
 
     @GetMapping("/buildings")
     public List<Building> getRepository() {
-        repository.save(new Building(0L, new Floor[]{new Floor(0L, new Room[]{new Room(0L)})}));
+        repository.save(new Building(new Floor[]{new Floor( new Room[]{new Room()})}));
         return repository.findAll();
     }
 
