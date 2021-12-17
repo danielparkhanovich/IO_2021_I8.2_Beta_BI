@@ -7,8 +7,8 @@ public abstract class Location {
 
     @Id
     @GeneratedValue
-    private Long id;
-    private String name;
+    protected Long id;
+    protected String name;
 
     public Location(){
     }
@@ -27,6 +27,10 @@ public abstract class Location {
 
     public void setId(long id){
         this.id = id;
+    }
+
+    public void setName(String name){
+        this.name = name;
     }
 
     public String toString(String interspace) {

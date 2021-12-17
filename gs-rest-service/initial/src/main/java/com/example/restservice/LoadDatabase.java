@@ -5,20 +5,18 @@ import com.example.restservice.Structures.Floor;
 import com.example.restservice.Structures.Room;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
-@Configuration
+import java.util.ArrayList;
+
 class LoadDatabase {
 
-    private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
+    public static void initDatabase(BuildingRepository repository) {
+        ArrayList<Room> rooms1 = new ArrayList<Room>();
+        rooms1.add(new Room());
 
-    @Bean
-    CommandLineRunner initDatabase() {
-        RestController instance = RestController.getInstance();
-        return args -> {
-            log.info("Preloading " + instance.repository.save(new Building(new Floor[]{new Floor(new Room[]{new Room()})})));
-        };
+        ArrayList<Floor> floors1 = new ArrayList<Floor>();
+        floors1.add(new Floor(rooms1));
+
+        repository.save(new Building(floors1));
     }
 }

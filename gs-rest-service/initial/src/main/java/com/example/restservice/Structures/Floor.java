@@ -1,28 +1,33 @@
 package com.example.restservice.Structures;
 
 import javax.persistence.Entity;
+import java.util.ArrayList;
 
 @Entity
 public class Floor extends Location {
 
-    private final Room[] rooms;
+    private ArrayList<Room> rooms;
 
     public Floor(){
-        rooms = new Room[0];
+        rooms = new ArrayList<Room>();
     }
 
-    public Floor(Room[] rooms) {
+    public Floor(ArrayList<Room> rooms) {
         super();
         this.rooms = rooms;
     }
 
-    public Floor(String name, Room[] rooms) {
+    public Floor(String name, ArrayList<Room> rooms) {
         super(name);
         this.rooms = rooms;
     }
 
-    public Room[] getRooms() {
+    public ArrayList<Room> getRooms() {
         return rooms;
+    }
+
+    public void setRooms(ArrayList<Room> rooms){
+        this.rooms = rooms;
     }
 
     @Override

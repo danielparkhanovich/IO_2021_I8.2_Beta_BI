@@ -20,60 +20,12 @@ import org.json.JSONString;
 public class RestApiClient {
 
     public static void main(String[] args) throws IOException{
-
         RestServiceApplication.main(args);
-
-        Scanner scanner = new Scanner(System.in);
-        ObjectMapper m = new ObjectMapper();
-
-        System.out.println("Welcome to the Building Info Command Line Editor.");
-        System.out.println("Do you want to get or set a Building Info?");
-        while (true) {
-            System.out.println("(Type 'get' or 'set' now.)");
-            String getOrSet = scanner.nextLine();
-            if ("get".equalsIgnoreCase(getOrSet)) {
-                System.out.println("Whose info do you want to get?");
-                System.out.println("(Type a building id now.)");
-
-                String input = scanner.nextLine();
-                long id=Long.parseLong(input);
-
-                String jsonString = getBuildingData(id);
-                if(jsonString == null){
-                    continue;
-                }
-
-                JSONObject jsonObject = new JSONObject(jsonString);
-
-                Building building = m.readValue(jsonObject.toString(), Building.class);
-
-                System.out.println(building.toString());
-
-            } else if ("set".equalsIgnoreCase(getOrSet)) {
-                System.out.println("Whose info do you want to set?");
-                System.out.println("(Type a person's name now.)");
-                String name = scanner.nextLine();
-
-                System.out.println("When was " + name + " born?");
-                System.out.println("(Type a year now.)");
-                String birthYear = scanner.nextLine();
-
-                System.out.println("Can you tell me about " + name + "?");
-                System.out.println("(Type a sentence now.)");
-                String about = scanner.nextLine();
-
-                // setPersonData(name, birthYear, about, password);
-            } else if ("exit".equalsIgnoreCase(getOrSet)) {
-                break;
-            }
-        }
-
-        scanner.close();
     }
 
     public static String getBuildingData(long id) throws IOException{
 
-        HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8080/buildings/" + Long.toString(id)).openConnection();
+        HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8080/buildings/build" + Long.toString(id)).openConnection();
 
         connection.setRequestMethod("GET");
 
@@ -100,7 +52,7 @@ public class RestApiClient {
 
     public static void addBuildingData(long id, String name, Floor[] floors) throws IOException{
 
-        HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8080/buildings/" + Long.toString(id)).openConnection();
+        HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8080/buildings/build" + Long.toString(id)).openConnection();
 
         connection.setRequestMethod("POST");
 
