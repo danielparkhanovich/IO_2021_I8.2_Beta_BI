@@ -51,7 +51,7 @@ public class RestController {
     }
 
 
-    @GetMapping("/buildings/build{id}/floor{id2}")
+    @PostMapping("/buildings/build{id}/floor{id2}")
     public Room addRoom(@PathVariable Long id, @PathVariable Long id2, @RequestBody Room newRoom) throws LocationNotFoundException {
         Location found = repository.findLocationById(id2);
         if (!(found instanceof Floor)){
@@ -90,6 +90,15 @@ public class RestController {
         }
         found = newRoom;
         return (Room)found;
+    }
+
+    @GetMapping("/buildings/build{id}")
+    public Building getBuilding(@PathVariable Long id) {
+        Building found = repository.findById(id);
+        if (found == null){
+            throw new LocationNotFoundException(id);
+        }
+        return found;
     }
 
     @GetMapping("/buildings/build{id}/floor{id2}")
