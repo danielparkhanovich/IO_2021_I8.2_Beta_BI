@@ -39,4 +39,14 @@ public class Floor extends Location {
         }
         return msg;
     }
+
+    @Override
+    public float calcArea() {
+        ArrayList<Room> roomList = getRooms();
+        float res = 0.0f;
+        for (Room room : roomList) {
+            res = res + room.calcArea();
+        }
+        return res;
+    }
 }
