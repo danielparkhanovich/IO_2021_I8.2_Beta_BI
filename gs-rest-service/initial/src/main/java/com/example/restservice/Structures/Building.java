@@ -39,4 +39,14 @@ public class Building extends Location {
         }
         return msg;
     }
+
+    @Override
+    public float calcCube() {
+        ArrayList<Floor> floorList = getFloors();
+        float res = 0.0f;
+        for (Floor floor : floorList) {
+            res = res + floor.calcCube();
+        }
+        return res;
+    }
 }
