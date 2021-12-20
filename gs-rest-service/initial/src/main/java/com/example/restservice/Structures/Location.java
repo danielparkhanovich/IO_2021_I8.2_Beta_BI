@@ -33,6 +33,8 @@ public abstract class Location {
         this.name = name;
     }
 
+    public abstract float calcHeating();
+
     public String toString(String interspace) {
         return interspace + "Location id: " + Long.toString(id) + " " + name + "\n"
                 + interspace + "Type: " + getClass() + "\n";

@@ -89,7 +89,7 @@ public class RestController {
             throw new LocationNotFoundException(id2);
         }
         found = newRoom;
-        return (Room)found;
+        return (Room) found;
     }
 
     @GetMapping("/buildings/build{id}")
@@ -117,5 +117,32 @@ public class RestController {
             throw new LocationNotFoundException(id);
         }
         return (Room) found;
+    }
+
+    @GetMapping("/buildings/build{id}/floor{id2}/room{id3}heating")
+    public float getRoomHeating(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3) throws LocationNotFoundException {
+        Location found = repository.findLocationById(id3);
+        if (!(found instanceof Room)){
+            throw new LocationNotFoundException(id);
+        }
+        return found.calcHeating();
+    }
+
+    @GetMapping("/buildings/build{id}/floor{id2}heating")
+    public float getFloorHeating(@PathVariable Long id, @PathVariable Long id2) throws LocationNotFoundException {
+        Location found = repository.findLocationById(id2);
+        if (!(found instanceof Floor)){
+            throw new LocationNotFoundException(id2);
+        }
+        return found.calcHeating();
+    }
+
+    @GetMapping("/buildings/build{id}heating")
+    public float getBuildingHeating(@PathVariable Long id) {
+        Building found = repository.findById(id);
+        if (found == null){
+            throw new LocationNotFoundException(id);
+        }
+        return found.calcHeating();
     }
 }

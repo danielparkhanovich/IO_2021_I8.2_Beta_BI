@@ -39,4 +39,12 @@ public class Building extends Location {
         }
         return msg;
     }
+
+    @Override
+    public float calcHeating() {
+        float result = 0.f;
+        int i = floors.size();
+        for (Floor floor : floors) { result += floor.calcHeating(); }
+        return (result/i);
+    }
 }
