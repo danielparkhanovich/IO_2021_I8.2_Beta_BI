@@ -40,7 +40,6 @@ public class Floor extends Location {
         return msg;
     }
 
-    @Override
     public float calcHeating() {
         float result = 0.f;
         int i = rooms.size();
