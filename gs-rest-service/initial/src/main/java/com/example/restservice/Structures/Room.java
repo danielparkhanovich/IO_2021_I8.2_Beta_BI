@@ -91,4 +91,7 @@ public class Room extends Location {
     public float calcCube() {
         return getCube();
     }
+
+    @Override
+    public float calcEnergy() { return (getHeating()/calcCube()); }
 }
