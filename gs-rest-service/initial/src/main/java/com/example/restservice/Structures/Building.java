@@ -77,14 +77,8 @@ public class Building extends Location {
         return res;
     }
 
-    public float getBuildingHeating() {
-        float result = 0.f;
-        for (Floor floor : floors) { result += floor.getFloorHeating(); }
-        return result;
-    }
-
     @Override
     public float calcEnergy() {
-        return (getBuildingHeating()/calcCube());
+        return (calcHeating()/calcCube());
     }
 }
