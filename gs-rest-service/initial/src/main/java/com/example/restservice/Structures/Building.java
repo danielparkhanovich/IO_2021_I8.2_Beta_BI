@@ -1,6 +1,11 @@
 package com.example.restservice.Structures;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import javax.persistence.Entity;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 @Entity
@@ -26,9 +31,18 @@ public class Building extends Location {
         return floors;
     }
 
+
+
     public void setFloors(ArrayList<Floor> floors){
         this.floors = floors;
     }
+
+
+
+
+
+
+
 
     @Override
     public String toString() {
@@ -81,4 +95,18 @@ public class Building extends Location {
     public float calcEnergy() {
         return (calcHeating()/calcCube());
     }
+
+    public ArrayList<Room> getHighEnergyRooms(float maxEnergy) {
+        ArrayList<Room> highEnergyRooms = new ArrayList<>();
+        for (Floor floor : floors) {
+            ArrayList<Room> roomList = floor.getRooms();
+            for (Room room : roomList) {
+                if (room.calcEnergy() > maxEnergy) {
+                    highEnergyRooms.add(room);
+                }
+            }
+        }
+        return highEnergyRooms;
+    }
+
 }
