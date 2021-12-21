@@ -73,4 +73,17 @@ public class Room extends Location {
     public float calcArea() {
         return getArea();
     }
+
+    @Override
+    public float calcLight() { return getLight(); }
+
+    @Override
+    public float calcHeating()
+    {
+        float area = getArea();
+        if (area == 0)
+            return 0;
+
+        return (getLight()/area);
+    }
 }

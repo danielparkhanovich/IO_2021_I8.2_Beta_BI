@@ -39,4 +39,8 @@ public abstract class Location {
     }
 
     public abstract float calcArea();
+
+    public abstract float calcLight();
+
+    public abstract float calcHeating();
 }
