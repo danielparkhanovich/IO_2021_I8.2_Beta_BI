@@ -68,28 +68,37 @@ public class RestController {
         if (found == null){
             throw new LocationNotFoundException(id);
         }
-        found = newBuilding;
-        return found;
+        repository.update(id, newBuilding);
+        return repository.findById(id);
     }
 
     @PutMapping("/buildings/build{id}/floor{id2}")
     public Floor updateFloor(@PathVariable Long id, @PathVariable Long id2, @RequestBody Floor newFloor) throws LocationNotFoundException {
-        Location found = repository.findLocationById(id2);
-        if (!(found instanceof Floor)){
-            throw new LocationNotFoundException(id2);
+        Building buildingFound = repository.findById(id);
+        if (buildingFound == null)
+        {
+            throw new LocationNotFoundException(id);
         }
-        found = newFloor;
-        return (Floor) found;
+        repository.update(id2, buildingFound, newFloor);
+        return (Floor) repository.findLocationById(id2);
     }
 
     @PutMapping("/buildings/build{id}/floor{id2}/room{id3}")
     public Room updateRoom(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3, @RequestBody Room newRoom) throws LocationNotFoundException {
-        Location found = repository.findLocationById(id3);
-        if (!(found instanceof Room)){
+        Building buildingFound = repository.findById(id);
+        Location found = repository.findLocationById(id2);
+        if (buildingFound == null)
+        {
+            throw new LocationNotFoundException(id);
+        }
+        else if (found == null){
             throw new LocationNotFoundException(id2);
         }
-        found = newRoom;
-        return (Room)found;
+        else if (!(found instanceof Floor)){
+            throw new LocationNotFoundException(id2);
+        }
+        repository.update(id3, buildingFound, (Floor)found, newRoom);
+        return (Room) repository.findLocationById(id3);
     }
 
     @GetMapping("/buildings/build{id}")
@@ -123,7 +132,7 @@ public class RestController {
     public float getRoomArea(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3) throws LocationNotFoundException {
         Location found = repository.findLocationById(id3);
         if (!(found instanceof Room)){
-            throw new LocationNotFoundException(id);
+            throw new LocationNotFoundException(id3);
         }
         return found.calcArea();
     }
@@ -177,7 +186,7 @@ public class RestController {
     public float getRoomCube(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3) throws LocationNotFoundException {
         Location found = repository.findLocationById(id3);
         if (!(found instanceof Room)){
-            throw new LocationNotFoundException(id);
+            throw new LocationNotFoundException(id3);
         }
         return found.calcCube();
     }
@@ -205,7 +214,7 @@ public class RestController {
     public float getRoomEnergy(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3) throws LocationNotFoundException {
         Location found = repository.findLocationById(id3);
         if (!(found instanceof Room)){
-            throw new LocationNotFoundException(id);
+            throw new LocationNotFoundException(id3);
         }
         return found.calcEnergy();
     }
