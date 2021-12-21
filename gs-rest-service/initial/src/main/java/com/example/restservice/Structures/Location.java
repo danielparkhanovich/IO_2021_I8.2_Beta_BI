@@ -37,4 +37,6 @@ public abstract class Location {
         return interspace + "Location id: " + Long.toString(id) + " " + name + "\n"
                 + interspace + "Type: " + getClass() + "\n";
     }
+
+    public abstract float calcArea();
 }

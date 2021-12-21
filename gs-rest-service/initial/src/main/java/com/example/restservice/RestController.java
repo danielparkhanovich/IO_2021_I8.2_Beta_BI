@@ -118,4 +118,33 @@ public class RestController {
         }
         return (Room) found;
     }
+
+    @GetMapping("/buildings/build{id}/floor{id2}/room{id3}area")
+    public float getRoomArea(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3) throws LocationNotFoundException {
+        Location found = repository.findLocationById(id3);
+        if (!(found instanceof Room)){
+            throw new LocationNotFoundException(id);
+        }
+        return found.calcArea();
+    }
+
+    @GetMapping("/buildings/build{id}/floor{id2}area")
+    public float getFloorArea(@PathVariable Long id, @PathVariable Long id2) throws LocationNotFoundException {
+        Location found = repository.findLocationById(id2);
+        if (!(found instanceof Floor)){
+            throw new LocationNotFoundException(id2);
+        }
+        return found.calcArea();
+    }
+
+    @GetMapping("/buildings/build{id}area")
+    public float getBuildingArea(@PathVariable Long id) {
+        Building found = repository.findById(id);
+        if (found == null){
+            throw new LocationNotFoundException(id);
+        }
+        return found.calcArea();
+    }
+
+
 }

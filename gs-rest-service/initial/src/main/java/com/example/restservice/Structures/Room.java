@@ -68,4 +68,9 @@ public class Room extends Location {
                 + interspace + "light: " + Float.toString(light);
         return msg;
     }
+
+    @Override
+    public float calcArea() {
+        return getArea();
+    }
 }
