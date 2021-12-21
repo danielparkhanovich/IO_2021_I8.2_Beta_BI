@@ -114,7 +114,7 @@ public class RestController {
     public Room getRoom(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3) throws LocationNotFoundException {
         Location found = repository.findLocationById(id3);
         if (!(found instanceof Room)){
-            throw new LocationNotFoundException(id);
+            throw new LocationNotFoundException(id3);
         }
         return (Room) found;
     }
@@ -150,7 +150,7 @@ public class RestController {
     public float getRoomHeating(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3) throws LocationNotFoundException {
         Location found = repository.findLocationById(id3);
         if (!(found instanceof Room)){
-            throw new LocationNotFoundException(id);
+            throw new LocationNotFoundException(id3);
         }
         return found.calcHeating();
     }

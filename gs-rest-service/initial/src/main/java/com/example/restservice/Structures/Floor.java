@@ -50,14 +50,20 @@ public class Floor extends Location {
         return res;
     }
 
-    public float getFloorLight() {
+    @Override
+    public float calcLight() {
         float result = 0.f;
         for (Room room : rooms) { result += room.getLight(); }
         return result;
     }
 
     @Override
-    public float calcHeating() {
-        return (getFloorLight()/calcArea());
+    public float calcHeating()
+    {
+        float area = calcArea();
+        if (area == 0)
+            return 0;
+
+        return (calcLight()/area);
     }
 }
