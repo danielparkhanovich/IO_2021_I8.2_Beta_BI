@@ -2,6 +2,11 @@ package com.example.restservice.Structures;
 
 import javax.persistence.Entity;
 
+/**
+ * Class room contains all information about the room.
+ */
+
+
 @Entity
 public class Room extends Location {
 
@@ -10,13 +15,29 @@ public class Room extends Location {
     private float heating;
     private float light;
 
+    /**
+     * Class constructor.
+     */
     public Room() {
         super();
     }
 
+    /**
+     * Class constructor with room name as argument
+     * @param name room name
+     */
     public Room(String name) {
         super(name);
     }
+
+    /**
+     * Class constructor with all fields as arguments
+     * @param name name of the room
+     * @param area  area of the room
+     * @param cube  volume of the room
+     * @param heating  heating of the room
+     * @param light  light of the room
+     */
 
     public Room(String name, float area, float cube, float heating, float light) {
         super(name);
@@ -33,14 +54,14 @@ public class Room extends Location {
     public float getCube(){
         return cube;
     }
-
     public float getHeating(){
         return heating;
     }
-
     public float getLight(){
         return light;
     }
+
+
 
     public void setArea(float area){
         this.area = area;
@@ -58,6 +79,12 @@ public class Room extends Location {
         this.light = light;
     }
 
+    /**
+     * Method returns values of all class fields as String
+     *
+     * @return String with all atributes of class Room
+     */
+
     @Override
     public String toString(String interspace) {
         interspace += "---> ";
@@ -69,13 +96,31 @@ public class Room extends Location {
         return msg;
     }
 
+    /**
+     * Method calculate area of the room
+     *
+     * @return area
+     */
+
     @Override
     public float calcArea() {
         return getArea();
     }
 
+    /**
+     * Method calculate light in the room
+     *
+     * @return light
+     */
+
     @Override
     public float calcLight() { return getLight(); }
+
+    /**
+     * Method calculate lighting power per unit area in the room.
+     *
+     * @return lighting power per unit area
+     */
 
     @Override
     public float calcHeating()
@@ -87,10 +132,22 @@ public class Room extends Location {
         return (getLight()/area);
     }
 
+    /**
+     * Method calculate volume of the room.
+     *
+     * @return volume of the room
+     */
+
     @Override
     public float calcCube() {
         return getCube();
     }
+
+    /**
+     * Method calculate energy consumption for heating per volume unit for the room.
+     *
+     * @return energy consumption per volume unit
+     */
 
     @Override
     public float calcEnergy() { return (getHeating()/calcCube()); }
