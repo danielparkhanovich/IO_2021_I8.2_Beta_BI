@@ -66,4 +66,25 @@ public class Floor extends Location {
 
         return (calcLight()/area);
     }
+
+    @Override
+    public float calcCube() {
+        ArrayList<Room> roomList = getRooms();
+        float res = 0.0f;
+        for (Room room : roomList) {
+            res = res + room.calcCube();
+        }
+        return res;
+    }
+
+    public float getFloorHeating() {
+        float result = 0.f;
+        for (Room room : rooms) { result += room.getHeating(); }
+        return result;
+    }
+
+    @Override
+    public float calcEnergy() {
+        return (getFloorHeating()/calcCube());
+    }
 }

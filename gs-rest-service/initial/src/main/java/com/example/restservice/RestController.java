@@ -172,5 +172,59 @@ public class RestController {
         }
         return found.calcHeating();
     }
+    
+    @GetMapping("/buildings/build{id}/floor{id2}/room{id3}cube")
+    public float getRoomCube(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3) throws LocationNotFoundException {
+        Location found = repository.findLocationById(id3);
+        if (!(found instanceof Room)){
+            throw new LocationNotFoundException(id);
+        }
+        return found.calcCube();
+    }
 
+    @GetMapping("/buildings/build{id}/floor{id2}cube")
+    public float getFloorCube(@PathVariable Long id, @PathVariable Long id2) throws LocationNotFoundException {
+        Location found = repository.findLocationById(id2);
+        if (!(found instanceof Floor)){
+            throw new LocationNotFoundException(id2);
+        }
+        return found.calcCube();
+    }
+
+    @GetMapping("/buildings/build{id}cube")
+    public float getBuildingCube(@PathVariable Long id) {
+        Building found = repository.findById(id);
+        if (found == null){
+            throw new LocationNotFoundException(id);
+        }
+        return found.calcCube();
+    }
+
+
+    @GetMapping("/buildings/build{id}/floor{id2}/room{id3}energy")
+    public float getRoomEnergy(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3) throws LocationNotFoundException {
+        Location found = repository.findLocationById(id3);
+        if (!(found instanceof Room)){
+            throw new LocationNotFoundException(id);
+        }
+        return found.calcEnergy();
+    }
+
+    @GetMapping("/buildings/build{id}/floor{id2}energy")
+    public float getFloorEnergy(@PathVariable Long id, @PathVariable Long id2) throws LocationNotFoundException {
+        Location found = repository.findLocationById(id2);
+        if (!(found instanceof Floor)){
+            throw new LocationNotFoundException(id2);
+        }
+        return found.calcEnergy();
+    }
+
+    @GetMapping("/buildings/build{id}energy")
+    public float getBuildingEnergy(@PathVariable Long id) {
+        Building found = repository.findById(id);
+        if (found == null){
+            throw new LocationNotFoundException(id);
+        }
+        return found.calcEnergy();
+    }
 }
