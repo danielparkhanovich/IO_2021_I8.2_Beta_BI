@@ -66,4 +66,14 @@ public class Floor extends Location {
 
         return (calcLight()/area);
     }
+
+    @Override
+    public float calcCube() {
+        ArrayList<Room> roomList = getRooms();
+        float res = 0.0f;
+        for (Room room : roomList) {
+            res = res + room.calcCube();
+        }
+        return res;
+    }
 }
