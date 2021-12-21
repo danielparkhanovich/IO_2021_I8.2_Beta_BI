@@ -40,6 +40,62 @@ class BuildingRepository {
         return null;
     }
 
+    public void update(Long id, Building newBuilding){
+        if (findById(id) == null)
+            return;
+        newBuilding.setId(id);
+        buildingsDict.put(id, newBuilding);
+    }
+
+    public void update(Long id, Building building, Floor newFloor){
+        if (findById(building.getId()) == null)
+            return;
+        else if (findLocationById(id) == null)
+            return;
+
+        Long buildingID = building.getId();
+
+        for(int i = 0; i < building.getFloors().size(); i++)
+        {
+            if (Objects.equals(building.getFloors().get(i).getId(), id))
+            {
+                building.getFloors().set(Math.toIntExact(id), newFloor);
+                break;
+            }
+        }
+
+        buildingsDict.put(buildingID, building);
+    }
+
+    public void update(Long id, Building building, Floor floor, Room newRoom){
+        if (findById(building.getId()) == null)
+            return;
+        else if (findLocationById(floor.getId()) == null)
+            return;
+        else if (findLocationById(id) == null)
+            return;
+
+        Long buildingID = building.getId();
+
+        for(int i = 0; i < building.getFloors().size(); i++)
+        {
+            outerloop:
+            if (Objects.equals(building.getFloors().get(i), floor))
+            {
+                for(int j = 0; j < floor.getRooms().size(); j++)
+                {
+                    if (Objects.equals(floor.getRooms().get(j).getId(), id))
+                    {
+                        floor.getRooms().set(Math.toIntExact(id), newRoom);
+                        break outerloop;
+                    }
+                }
+            }
+        }
+
+        buildingsDict.put(buildingID, building);
+    }
+
     public Location findLocationById(Long id){
         for (HashMap.Entry<Long, Building> entry : buildingsDict.entrySet()) {
             Building building = entry.getValue();
