@@ -1,6 +1,8 @@
 # IO_2021_I8.2_Beta_BI
 Building Info Project
 
+![example workflow](https://github.com/scanax2/IO_2021_I8.2_Beta_BI/actions/workflows/maven.yml/badge.svg)
+
 ____
 ## Struktura danych
 * Lokacja to budynek, poziom, lub pomieszczenie
