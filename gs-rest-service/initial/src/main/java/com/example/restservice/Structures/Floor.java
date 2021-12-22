@@ -58,7 +58,7 @@ public class Floor extends Location {
     }
 
     @Override
-    public float calcHeating()
+    public float calcLightingPower()
     {
         float area = calcArea();
         if (area == 0)
@@ -79,6 +79,6 @@ public class Floor extends Location {
 
     @Override
     public float calcEnergy() {
-        return (calcHeating()/calcCube());
+        return (calcLightingPower()/calcCube());
     }
 }

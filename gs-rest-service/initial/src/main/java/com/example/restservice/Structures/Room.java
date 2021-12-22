@@ -10,9 +10,21 @@ import javax.persistence.Entity;
 @Entity
 public class Room extends Location {
 
+    /**
+     * Area of the room, used for calculate lighting power.
+     */
     private float area;
+    /**
+     * Volume of the room, used for calculate energy consumption.
+     */
     private float cube;
+    /**
+     * Heating of the room, used for calculate energy consumption.
+     */
     private float heating;
+    /**
+     * Light of the room, used for calculate lighting power.
+     */
     private float light;
 
     /**
@@ -23,7 +35,7 @@ public class Room extends Location {
     }
 
     /**
-     * Class constructor with room name as argument
+     * Class constructor with room name as argument.
      * @param name room name
      */
     public Room(String name) {
@@ -31,7 +43,7 @@ public class Room extends Location {
     }
 
     /**
-     * Class constructor with all fields as arguments
+     * Class constructor with all fields as arguments.
      * @param name name of the room
      * @param area  area of the room
      * @param cube  volume of the room
@@ -80,7 +92,7 @@ public class Room extends Location {
     }
 
     /**
-     * Method returns values of all class fields as String
+     * Method returns values of all class fields as String.
      *
      * @return String with all atributes of class Room
      */
@@ -97,7 +109,7 @@ public class Room extends Location {
     }
 
     /**
-     * Method calculate area of the room
+     * Method calculate area of the room.
      *
      * @return area
      */
@@ -108,7 +120,7 @@ public class Room extends Location {
     }
 
     /**
-     * Method calculate light in the room
+     * Method calculate light in the room.
      *
      * @return light
      */
@@ -123,7 +135,7 @@ public class Room extends Location {
      */
 
     @Override
-    public float calcHeating()
+    public float calcLightingPower()
     {
         float area = getArea();
         if (area == 0)

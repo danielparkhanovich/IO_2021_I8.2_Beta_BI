@@ -7,7 +7,6 @@ import com.example.restservice.Structures.Building;
 import com.example.restservice.Structures.Floor;
 import com.example.restservice.Structures.Location;
 import com.example.restservice.Structures.Room;
-import org.springframework.boot.web.embedded.undertow.UndertowWebServer;
 import org.springframework.web.bind.annotation.*;
 
 @org.springframework.web.bind.annotation.RestController
@@ -155,31 +154,31 @@ public class RestController {
         return found.calcArea();
     }
 
-    @GetMapping("/buildings/build{id}/floor{id2}/room{id3}heating")
-    public float getRoomHeating(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3) throws LocationNotFoundException {
+    @GetMapping("/buildings/build{id}/floor{id2}/room{id3}lightingPower")
+    public float getRoomLightingPower(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3) throws LocationNotFoundException {
         Location found = repository.findLocationById(id3);
         if (!(found instanceof Room)){
             throw new LocationNotFoundException(id3);
         }
-        return found.calcHeating();
+        return found.calcLightingPower();
     }
 
-    @GetMapping("/buildings/build{id}/floor{id2}heating")
-    public float getFloorHeating(@PathVariable Long id, @PathVariable Long id2) throws LocationNotFoundException {
+    @GetMapping("/buildings/build{id}/floor{id2}lightingPower")
+    public float getFloorLightingPower(@PathVariable Long id, @PathVariable Long id2) throws LocationNotFoundException {
         Location found = repository.findLocationById(id2);
         if (!(found instanceof Floor)){
             throw new LocationNotFoundException(id2);
         }
-        return found.calcHeating();
+        return found.calcLightingPower();
     }
 
-    @GetMapping("/buildings/build{id}heating")
-    public float getBuildingHeating(@PathVariable Long id) {
+    @GetMapping("/buildings/build{id}lightingPower")
+    public float getBuildingLightingPower(@PathVariable Long id) {
         Building found = repository.findById(id);
         if (found == null){
             throw new LocationNotFoundException(id);
         }
-        return found.calcHeating();
+        return found.calcLightingPower();
     }
     
     @GetMapping("/buildings/build{id}/floor{id2}/room{id3}cube")

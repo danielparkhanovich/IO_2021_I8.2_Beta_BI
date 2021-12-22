@@ -1,11 +1,6 @@
 package com.example.restservice.Structures;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import javax.persistence.Entity;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 @Entity
@@ -72,7 +67,7 @@ public class Building extends Location {
     }
 
     @Override
-    public float calcHeating()
+    public float calcLightingPower()
     {
         float area = calcArea();
         if (area == 0)
@@ -93,7 +88,7 @@ public class Building extends Location {
 
     @Override
     public float calcEnergy() {
-        return (calcHeating()/calcCube());
+        return (calcLightingPower()/calcCube());
     }
 
     public ArrayList<Room> getHighEnergyRooms(float maxEnergy) {
