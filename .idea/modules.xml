@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/IO_2021_I8.2_Beta_BI.iml" filepath="$PROJECT_DIR$/.idea/IO_2021_I8.2_Beta_BI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gs-rest-service/initial/rest-service-initial.iml" filepath="$PROJECT_DIR$/gs-rest-service/initial/rest-service-initial.iml" />
+    </modules>
+  </component>
+</project>
