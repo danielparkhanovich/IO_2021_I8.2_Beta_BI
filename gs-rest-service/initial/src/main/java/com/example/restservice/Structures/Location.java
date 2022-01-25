@@ -47,4 +47,10 @@ public abstract class Location {
     public abstract float calcCube();
 
     public abstract float calcEnergy();
+
+    public float calcTax(int costPerM2, float taxRate) {
+
+        return costPerM2 * taxRate * calcArea();
+    }
+
 }

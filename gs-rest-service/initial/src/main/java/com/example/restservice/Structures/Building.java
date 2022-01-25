@@ -34,11 +34,6 @@ public class Building extends Location {
 
 
 
-
-
-
-
-
     @Override
     public String toString() {
         String msg = super.toString("");
@@ -91,6 +86,9 @@ public class Building extends Location {
         return (calcLightingPower()/calcCube());
     }
 
+
+
+
     public ArrayList<Room> getHighEnergyRooms(float maxEnergy) {
         ArrayList<Room> highEnergyRooms = new ArrayList<>();
         for (Floor floor : floors) {
@@ -103,5 +101,20 @@ public class Building extends Location {
         }
         return highEnergyRooms;
     }
+
+    public ArrayList<Room> getLowEnergyRooms(float maxEnergy) {
+        ArrayList<Room> lowEnergyRooms = new ArrayList<>();
+        for (Floor floor : floors) {
+            ArrayList<Room> roomList = floor.getRooms();
+            for (Room room : roomList) {
+                if (room.calcEnergy() <= maxEnergy) {
+                    lowEnergyRooms.add(room);
+                }
+            }
+        }
+        return lowEnergyRooms;
+    }
+
+
 
 }

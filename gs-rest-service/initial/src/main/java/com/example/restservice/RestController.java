@@ -235,4 +235,8 @@ public class RestController {
         }
         return found.calcEnergy();
     }
+
+//    @GetMapping("/buildings/")
+//    public float getHighEnergyRooms(@PathVariable Long id, )
+
 }
