@@ -8,8 +8,16 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 
+/**
+ * Class LoadDatabase serves for the data save/load
+ */
 class LoadDatabase {
 
+    /**
+     * Class LoadDatabase serves for the data save/load.
+     *
+     * @param repository repository - for insert into data.
+     */
     public static void initDatabase(BuildingRepository repository) {
         ArrayList<Room> rooms1 = new ArrayList<Room>();
         rooms1.add(new Room());

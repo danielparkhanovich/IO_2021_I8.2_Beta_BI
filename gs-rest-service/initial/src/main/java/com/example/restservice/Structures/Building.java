@@ -3,20 +3,39 @@ package com.example.restservice.Structures;
 import javax.persistence.Entity;
 import java.util.ArrayList;
 
+/**
+ * Class Building describes all information about the building.
+ */
+
 @Entity
 public class Building extends Location {
 
+    /**
+     * floors Contains all floors in the building.
+     */
     private ArrayList<Floor> floors;
 
+    /**
+     * Class constructor.
+     */
     public Building(){
         floors = new ArrayList<Floor>();
     }
 
+    /**
+     * Class constructor with floors as argument.
+     * @param floors floors
+     */
     public Building(ArrayList<Floor> floors) {
         super();
         this.floors = floors;
     }
 
+    /**
+     * Class constructor with name and floors as argument.
+     * @param name name
+     * @param floors floors
+     */
     public Building(String name, ArrayList<Floor> floors) {
         super(name);
         this.floors = floors;
@@ -33,7 +52,11 @@ public class Building extends Location {
     }
 
 
-
+    /**
+     * Method returns values of all class fields as String.
+     *
+     * @return String with all atributes of class Room
+     */
     @Override
     public String toString() {
         String msg = super.toString("");
@@ -44,6 +67,11 @@ public class Building extends Location {
         return msg;
     }
 
+    /**
+     * Method calculate area of the building.
+     *
+     * @return area
+     */
     @Override
     public float calcArea() {
         ArrayList<Floor> floorList = getFloors();
@@ -54,6 +82,11 @@ public class Building extends Location {
         return res;
     }
 
+    /**
+     * Method calculate light in the building.
+     *
+     * @return light
+     */
     @Override
     public float calcLight() {
         float result = 0.f;
@@ -61,6 +94,11 @@ public class Building extends Location {
         return result;
     }
 
+    /**
+     * Method calculate lighting power per unit area in the building.
+     *
+     * @return lighting power per unit area
+     */
     @Override
     public float calcLightingPower()
     {
@@ -71,6 +109,11 @@ public class Building extends Location {
         return (calcLight()/area);
     }
 
+    /**
+     * Method calculate volume of the building.
+     *
+     * @return volume of the room
+     */
     @Override
     public float calcCube() {
         ArrayList<Floor> floorList = getFloors();
@@ -80,16 +123,23 @@ public class Building extends Location {
         }
         return res;
     }
-
+    /**
+     * Method calculate energy consumption for heating per volume unit for the building.
+     *
+     * @return energy consumption per volume unit
+     */
     @Override
     public float calcEnergy() {
         return (calcLightingPower()/calcCube());
     }
 
-
-
-
-    public ArrayList<Room> getHighEnergyRooms(float maxEnergy) {
+    /**
+     * Method for get rooms with higher energy than maxEnergy.
+     *
+     * @param maxEnergy maxEnergy
+     * @return rooms with higher energy
+     */
+    public ArrayList<Room> calcHighEnergyRooms(float maxEnergy) {
         ArrayList<Room> highEnergyRooms = new ArrayList<>();
         for (Floor floor : floors) {
             ArrayList<Room> roomList = floor.getRooms();
@@ -102,19 +152,23 @@ public class Building extends Location {
         return highEnergyRooms;
     }
 
-    public ArrayList<Room> getLowEnergyRooms(float maxEnergy) {
+    /**
+     * Method for get rooms with lower energy than minEnergy.
+     *
+     * @param minEnergy minEnergy
+     * @return rooms with lower energy
+     */
+    public ArrayList<Room> calcLowEnergyRooms(float minEnergy) {
         ArrayList<Room> lowEnergyRooms = new ArrayList<>();
         for (Floor floor : floors) {
             ArrayList<Room> roomList = floor.getRooms();
             for (Room room : roomList) {
-                if (room.calcEnergy() <= maxEnergy) {
+                if (room.calcEnergy() <= minEnergy) {
                     lowEnergyRooms.add(room);
                 }
             }
         }
         return lowEnergyRooms;
     }
-
-
 
 }

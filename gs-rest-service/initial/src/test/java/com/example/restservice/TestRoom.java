@@ -15,12 +15,6 @@ public class TestRoom {
 
     public static Location locationMock;
 
-
-
-
-
-
-
     @Test
     public void testingCalcCube1() {
         Room room = new Room("Room1", 25.6f, 70.3f, 140.24f, 123.2f );

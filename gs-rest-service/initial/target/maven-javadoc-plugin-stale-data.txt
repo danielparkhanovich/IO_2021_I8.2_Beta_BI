@@ -1,0 +1,127 @@
+@options
+@packages
+@argfile
+-classpath
+'C:/Users/Scanax/.m2/repository/org/springframework/boot/spring-boot-starter-web/2.5.2/spring-boot-starter-web-2.5.2.jar;C:/Users/Scanax/.m2/repository/org/springframework/boot/spring-boot-starter/2.5.2/spring-boot-starter-2.5.2.jar;C:/Users/Scanax/.m2/repository/org/springframework/boot/spring-boot/2.5.2/spring-boot-2.5.2.jar;C:/Users/Scanax/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/2.5.2/spring-boot-autoconfigure-2.5.2.jar;C:/Users/Scanax/.m2/repository/org/springframework/boot/spring-boot-starter-logging/2.5.2/spring-boot-starter-logging-2.5.2.jar;C:/Users/Scanax/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar;C:/Users/Scanax/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar;C:/Users/Scanax/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.14.1/log4j-to-slf4j-2.14.1.jar;C:/Users/Scanax/.m2/repository/org/apache/logging/log4j/log4j-api/2.14.1/log4j-api-2.14.1.jar;C:/Users/Scanax/.m2/repository/org/slf4j/jul-to-slf4j/1.7.31/jul-to-slf4j-1.7.31.jar;C:/Users/Scanax/.m2/repository/jakarta/annotation/jakarta.annotation-api/1.3.5/jakarta.annotation-api-1.3.5.jar;C:/Users/Scanax/.m2/repository/org/yaml/snakeyaml/1.28/snakeyaml-1.28.jar;C:/Users/Scanax/.m2/repository/org/springframework/boot/spring-boot-starter-json/2.5.2/spring-boot-starter-json-2.5.2.jar;C:/Users/Scanax/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.3/jackson-databind-2.12.3.jar;C:/Users/Scanax/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.3/jackson-annotations-2.12.3.jar;C:/Users/Scanax/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.12.3/jackson-core-2.12.3.jar;C:/Users/Scanax/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.12.3/jackson-datatype-jdk8-2.12.3.jar;C:/Users/Scanax/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.12.3/jackson-datatype-jsr310-2.12.3.jar;C:/Users/Scanax/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.12.3/jackson-module-parameter-names-2.12.3.jar;C:/Users/Scanax/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/2.5.2/spring-boot-starter-tomcat-2.5.2.jar;C:/Users/Scanax/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/9.0.48/tomcat-embed-core-9.0.48.jar;C:/Users/Scanax/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/9.0.48/tomcat-embed-el-9.0.48.jar;C:/Users/Scanax/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.48/tomcat-embed-websocket-9.0.48.jar;C:/Users/Scanax/.m2/repository/org/springframework/spring-web/5.3.8/spring-web-5.3.8.jar;C:/Users/Scanax/.m2/repository/org/springframework/spring-beans/5.3.8/spring-beans-5.3.8.jar;C:/Users/Scanax/.m2/repository/org/springframework/spring-webmvc/5.3.8/spring-webmvc-5.3.8.jar;C:/Users/Scanax/.m2/repository/org/springframework/spring-aop/5.3.8/spring-aop-5.3.8.jar;C:/Users/Scanax/.m2/repository/org/springframework/spring-context/5.3.8/spring-context-5.3.8.jar;C:/Users/Scanax/.m2/repository/org/springframework/spring-expression/5.3.8/spring-expression-5.3.8.jar;C:/Users/Scanax/.m2/repository/org/slf4j/slf4j-api/1.7.31/slf4j-api-1.7.31.jar;C:/Users/Scanax/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar;C:/Users/Scanax/.m2/repository/jakarta/activation/jakarta.activation-api/1.2.2/jakarta.activation-api-1.2.2.jar;C:/Users/Scanax/.m2/repository/net/bytebuddy/byte-buddy/1.10.22/byte-buddy-1.10.22.jar;C:/Users/Scanax/.m2/repository/org/springframework/spring-core/5.3.8/spring-core-5.3.8.jar;C:/Users/Scanax/.m2/repository/org/springframework/spring-jcl/5.3.8/spring-jcl-5.3.8.jar;C:/Users/Scanax/.m2/repository/org/json/json/20190722/json-20190722.jar;C:/Users/Scanax/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/2.5.2/spring-boot-starter-data-jpa-2.5.2.jar;C:/Users/Scanax/.m2/repository/org/springframework/boot/spring-boot-starter-aop/2.5.2/spring-boot-starter-aop-2.5.2.jar;C:/Users/Scanax/.m2/repository/org/aspectj/aspectjweaver/1.9.6/aspectjweaver-1.9.6.jar;C:/Users/Scanax/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/2.5.2/spring-boot-starter-jdbc-2.5.2.jar;C:/Users/Scanax/.m2/repository/com/zaxxer/HikariCP/4.0.3/HikariCP-4.0.3.jar;C:/Users/Scanax/.m2/repository/org/springframework/spring-jdbc/5.3.8/spring-jdbc-5.3.8.jar;C:/Users/Scanax/.m2/repository/jakarta/transaction/jakarta.transaction-api/1.3.3/jakarta.transaction-api-1.3.3.jar;C:/Users/Scanax/.m2/repository/jakarta/persistence/jakarta.persistence-api/2.2.3/jakarta.persistence-api-2.2.3.jar;C:/Users/Scanax/.m2/repository/org/hibernate/hibernate-core/5.4.32.Final/hibernate-core-5.4.32.Final.jar;C:/Users/Scanax/.m2/repository/org/jboss/logging/jboss-logging/3.4.2.Final/jboss-logging-3.4.2.Final.jar;C:/Users/Scanax/.m2/repository/org/javassist/javassist/3.27.0-GA/javassist-3.27.0-GA.jar;C:/Users/Scanax/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar;C:/Users/Scanax/.m2/repository/org/jboss/jandex/2.2.3.Final/jandex-2.2.3.Final.jar;C:/Users/Scanax/.m2/repository/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar;C:/Users/Scanax/.m2/repository/org/dom4j/dom4j/2.1.3/dom4j-2.1.3.jar;C:/Users/Scanax/.m2/repository/org/hibernate/common/hibernate-commons-annotations/5.1.2.Final/hibernate-commons-annotations-5.1.2.Final.jar;C:/Users/Scanax/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.4/jaxb-runtime-2.3.4.jar;C:/Users/Scanax/.m2/repository/org/glassfish/jaxb/txw2/2.3.4/txw2-2.3.4.jar;C:/Users/Scanax/.m2/repository/com/sun/istack/istack-commons-runtime/3.0.12/istack-commons-runtime-3.0.12.jar;C:/Users/Scanax/.m2/repository/org/springframework/data/spring-data-jpa/2.5.2/spring-data-jpa-2.5.2.jar;C:/Users/Scanax/.m2/repository/org/springframework/data/spring-data-commons/2.5.2/spring-data-commons-2.5.2.jar;C:/Users/Scanax/.m2/repository/org/springframework/spring-orm/5.3.8/spring-orm-5.3.8.jar;C:/Users/Scanax/.m2/repository/org/springframework/spring-tx/5.3.8/spring-tx-5.3.8.jar;C:/Users/Scanax/.m2/repository/org/springframework/spring-aspects/5.3.8/spring-aspects-5.3.8.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'1.8'
+-sourcepath
+'D:/Studies/sem5/IO/lab/projectBI/gs-rest-service/initial/src/main/java;D:/Studies/sem5/IO/lab/projectBI/gs-rest-service/initial/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2022. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'D:/Studies/sem5/IO/lab/projectBI/gs-rest-service/initial/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'rest-service-initial 1.0.2 API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' 'D:/Studies/sem5/IO/lab/projectBI/gs-rest-service/initial/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'rest-service-initial 1.0.2 API'
+com.example.restservice
+com.example.restservice.Exceptions
+com.example.restservice.Structures
+'D:/Studies/sem5/IO/lab/projectBI/gs-rest-service/initial/src/main/java/com/example/restservice/BuildingRepository.java'
+'D:/Studies/sem5/IO/lab/projectBI/gs-rest-service/initial/src/main/java/com/example/restservice/Exceptions/LocationNotFoundException.java'
+'D:/Studies/sem5/IO/lab/projectBI/gs-rest-service/initial/src/main/java/com/example/restservice/LoadDatabase.java'
+'D:/Studies/sem5/IO/lab/projectBI/gs-rest-service/initial/src/main/java/com/example/restservice/RestController.java'
+'D:/Studies/sem5/IO/lab/projectBI/gs-rest-service/initial/src/main/java/com/example/restservice/RestServiceApplication.java'
+'D:/Studies/sem5/IO/lab/projectBI/gs-rest-service/initial/src/main/java/com/example/restservice/Structures/Building.java'
+'D:/Studies/sem5/IO/lab/projectBI/gs-rest-service/initial/src/main/java/com/example/restservice/Structures/Floor.java'
+'D:/Studies/sem5/IO/lab/projectBI/gs-rest-service/initial/src/main/java/com/example/restservice/Structures/Location.java'
+'D:/Studies/sem5/IO/lab/projectBI/gs-rest-service/initial/src/main/java/com/example/restservice/Structures/Room.java'
+'D:/Studies/sem5/IO/lab/projectBI/gs-rest-service/initial/src/main/java/RestApiClient.java'
+C:\Users\Scanax\.m2\repository\org\springframework\boot\spring-boot-starter-web\2.5.2\spring-boot-starter-web-2.5.2.jar = 1639254606897
+C:\Users\Scanax\.m2\repository\org\springframework\boot\spring-boot-starter\2.5.2\spring-boot-starter-2.5.2.jar = 1639254608829
+C:\Users\Scanax\.m2\repository\org\springframework\boot\spring-boot\2.5.2\spring-boot-2.5.2.jar = 1639254608981
+C:\Users\Scanax\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\2.5.2\spring-boot-autoconfigure-2.5.2.jar = 1639254608999
+C:\Users\Scanax\.m2\repository\org\springframework\boot\spring-boot-starter-logging\2.5.2\spring-boot-starter-logging-2.5.2.jar = 1639254607133
+C:\Users\Scanax\.m2\repository\ch\qos\logback\logback-classic\1.2.3\logback-classic-1.2.3.jar = 1639254607190
+C:\Users\Scanax\.m2\repository\ch\qos\logback\logback-core\1.2.3\logback-core-1.2.3.jar = 1639254607223
+C:\Users\Scanax\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.14.1\log4j-to-slf4j-2.14.1.jar = 1639254607206
+C:\Users\Scanax\.m2\repository\org\apache\logging\log4j\log4j-api\2.14.1\log4j-api-2.14.1.jar = 1639254607280
+C:\Users\Scanax\.m2\repository\org\slf4j\jul-to-slf4j\1.7.31\jul-to-slf4j-1.7.31.jar = 1639254607281
+C:\Users\Scanax\.m2\repository\jakarta\annotation\jakarta.annotation-api\1.3.5\jakarta.annotation-api-1.3.5.jar = 1639254607888
+C:\Users\Scanax\.m2\repository\org\yaml\snakeyaml\1.28\snakeyaml-1.28.jar = 1639254607384
+C:\Users\Scanax\.m2\repository\org\springframework\boot\spring-boot-starter-json\2.5.2\spring-boot-starter-json-2.5.2.jar = 1639254607386
+C:\Users\Scanax\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.12.3\jackson-databind-2.12.3.jar = 1639254607964
+C:\Users\Scanax\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.12.3\jackson-annotations-2.12.3.jar = 1639254607704
+C:\Users\Scanax\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.12.3\jackson-core-2.12.3.jar = 1639254607802
+C:\Users\Scanax\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.12.3\jackson-datatype-jdk8-2.12.3.jar = 1639254607541
+C:\Users\Scanax\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.12.3\jackson-datatype-jsr310-2.12.3.jar = 1639254607670
+C:\Users\Scanax\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.12.3\jackson-module-parameter-names-2.12.3.jar = 1639254607779
+C:\Users\Scanax\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\2.5.2\spring-boot-starter-tomcat-2.5.2.jar = 1639254607850
+C:\Users\Scanax\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\9.0.48\tomcat-embed-core-9.0.48.jar = 1639254608212
+C:\Users\Scanax\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\9.0.48\tomcat-embed-el-9.0.48.jar = 1639254607963
+C:\Users\Scanax\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\9.0.48\tomcat-embed-websocket-9.0.48.jar = 1639254608026
+C:\Users\Scanax\.m2\repository\org\springframework\spring-web\5.3.8\spring-web-5.3.8.jar = 1639254608843
+C:\Users\Scanax\.m2\repository\org\springframework\spring-beans\5.3.8\spring-beans-5.3.8.jar = 1639254608567
+C:\Users\Scanax\.m2\repository\org\springframework\spring-webmvc\5.3.8\spring-webmvc-5.3.8.jar = 1639254608331
+C:\Users\Scanax\.m2\repository\org\springframework\spring-aop\5.3.8\spring-aop-5.3.8.jar = 1639254608587
+C:\Users\Scanax\.m2\repository\org\springframework\spring-context\5.3.8\spring-context-5.3.8.jar = 1639254608514
+C:\Users\Scanax\.m2\repository\org\springframework\spring-expression\5.3.8\spring-expression-5.3.8.jar = 1639254608604
+C:\Users\Scanax\.m2\repository\org\slf4j\slf4j-api\1.7.31\slf4j-api-1.7.31.jar = 1639254609080
+C:\Users\Scanax\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\2.3.3\jakarta.xml.bind-api-2.3.3.jar = 1639254609845
+C:\Users\Scanax\.m2\repository\jakarta\activation\jakarta.activation-api\1.2.2\jakarta.activation-api-1.2.2.jar = 1639254609125
+C:\Users\Scanax\.m2\repository\net\bytebuddy\byte-buddy\1.10.22\byte-buddy-1.10.22.jar = 1639254609739
+C:\Users\Scanax\.m2\repository\org\springframework\spring-core\5.3.8\spring-core-5.3.8.jar = 1639254609825
+C:\Users\Scanax\.m2\repository\org\springframework\spring-jcl\5.3.8\spring-jcl-5.3.8.jar = 1639254609757
+C:\Users\Scanax\.m2\repository\org\json\json\20190722\json-20190722.jar = 1639258016342
+C:\Users\Scanax\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\2.5.2\spring-boot-starter-data-jpa-2.5.2.jar = 1639308981648
+C:\Users\Scanax\.m2\repository\org\springframework\boot\spring-boot-starter-aop\2.5.2\spring-boot-starter-aop-2.5.2.jar = 1639308981742
+C:\Users\Scanax\.m2\repository\org\aspectj\aspectjweaver\1.9.6\aspectjweaver-1.9.6.jar = 1639308982709
+C:\Users\Scanax\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\2.5.2\spring-boot-starter-jdbc-2.5.2.jar = 1639308981740
+C:\Users\Scanax\.m2\repository\com\zaxxer\HikariCP\4.0.3\HikariCP-4.0.3.jar = 1639308981820
+C:\Users\Scanax\.m2\repository\org\springframework\spring-jdbc\5.3.8\spring-jdbc-5.3.8.jar = 1639308982507
+C:\Users\Scanax\.m2\repository\jakarta\transaction\jakarta.transaction-api\1.3.3\jakarta.transaction-api-1.3.3.jar = 1639308981820
+C:\Users\Scanax\.m2\repository\jakarta\persistence\jakarta.persistence-api\2.2.3\jakarta.persistence-api-2.2.3.jar = 1639308981932
+C:\Users\Scanax\.m2\repository\org\hibernate\hibernate-core\5.4.32.Final\hibernate-core-5.4.32.Final.jar = 1639308982580
+C:\Users\Scanax\.m2\repository\org\jboss\logging\jboss-logging\3.4.2.Final\jboss-logging-3.4.2.Final.jar = 1639308982159
+C:\Users\Scanax\.m2\repository\org\javassist\javassist\3.27.0-GA\javassist-3.27.0-GA.jar = 1639308982082
+C:\Users\Scanax\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar = 1639308982041
+C:\Users\Scanax\.m2\repository\org\jboss\jandex\2.2.3.Final\jandex-2.2.3.Final.jar = 1639308982067
+C:\Users\Scanax\.m2\repository\com\fasterxml\classmate\1.5.1\classmate-1.5.1.jar = 1639308982070
+C:\Users\Scanax\.m2\repository\org\dom4j\dom4j\2.1.3\dom4j-2.1.3.jar = 1639308982139
+C:\Users\Scanax\.m2\repository\org\hibernate\common\hibernate-commons-annotations\5.1.2.Final\hibernate-commons-annotations-5.1.2.Final.jar = 1639308982152
+C:\Users\Scanax\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.4\jaxb-runtime-2.3.4.jar = 1639308982289
+C:\Users\Scanax\.m2\repository\org\glassfish\jaxb\txw2\2.3.4\txw2-2.3.4.jar = 1639308982226
+C:\Users\Scanax\.m2\repository\com\sun\istack\istack-commons-runtime\3.0.12\istack-commons-runtime-3.0.12.jar = 1639308982255
+C:\Users\Scanax\.m2\repository\org\springframework\data\spring-data-jpa\2.5.2\spring-data-jpa-2.5.2.jar = 1639308982337
+C:\Users\Scanax\.m2\repository\org\springframework\data\spring-data-commons\2.5.2\spring-data-commons-2.5.2.jar = 1639308982916
+C:\Users\Scanax\.m2\repository\org\springframework\spring-orm\5.3.8\spring-orm-5.3.8.jar = 1639308982430
+C:\Users\Scanax\.m2\repository\org\springframework\spring-tx\5.3.8\spring-tx-5.3.8.jar = 1639308982473
+C:\Users\Scanax\.m2\repository\org\springframework\spring-aspects\5.3.8\spring-aspects-5.3.8.jar = 1639308982599
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\src\main\java\RestApiClient.java = 1639950474785
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\src\main\java = 1639950474785
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\generated-sources\annotations = 1640130964017
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\allclasses-index.html = 1643173058467
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\allpackages-index.html = 1643173058469
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\element-list = 1643173058356
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\help-doc.html = 1643173058496
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\index-all.html = 1643173058491
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\index.html = 1643173058453
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\jquery-ui.overrides.css = 1643173058565
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\member-search-index.js = 1643173058474
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\module-search-index.js = 1643173058469
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\overview-summary.html = 1643173058492
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\overview-tree.html = 1643173058450
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\package-search-index.js = 1643173058470
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\package-summary.html = 1643173058364
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\package-tree.html = 1643173058367
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\package-use.html = 1643173058438
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\RestApiClient.html = 1643173058281
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\script.js = 1643173058499
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\search.js = 1643173058502
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\serialized-form.html = 1643173058394
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\stylesheet.css = 1643173058498
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\tag-search-index.js = 1643173058475
+D:\Studies\sem5\IO\lab\projectBI\gs-rest-service\initial\target\apidocs\type-search-index.js = 1643173058472

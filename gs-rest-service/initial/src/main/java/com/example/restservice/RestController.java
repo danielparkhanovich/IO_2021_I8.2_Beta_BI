@@ -205,7 +205,6 @@ public class RestController {
         return found.calcCube();
     }
 
-
     @GetMapping("/buildings/build{id}/floor{id2}/room{id3}energy")
     public float getRoomEnergy(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3) throws LocationNotFoundException {
         Location found = repository.findLocationById(id3);
@@ -233,28 +232,30 @@ public class RestController {
         return found.calcEnergy();
     }
 
-    @GetMapping("/buildings/build{id}/floor{id2}/room{id3}energy")
-    public ArrayList<Room> getHighEnergyRooms(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3){
+    @GetMapping("/buildings/building{id}/highEnergyRooms:{energy}")
+    public ArrayList<Room> getHighEnergyRooms(@PathVariable Long id, @PathVariable float energy){
         Building found = repository.findById(id);
         if (found == null) {
             throw new LocationNotFoundException(id);
         }
-        return found.getHighEnergyRooms();
+        return found.calcHighEnergyRooms(energy);
     }
 
-    @GetMapping("/buildings/build{id}/floor{id2}/room{id3}energy")
-    public ArrayList<Room> getLowEnergyRooms(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3){
+    @GetMapping("/buildings/building{id}/lowEnergyRooms:{energy}")
+    public ArrayList<Room> getLowEnergyRooms(@PathVariable Long id, @PathVariable float energy){
         Building found = repository.findById(id);
         if (found == null) {
             throw new LocationNotFoundException(id);
         }
-        return found.getLowEnergyRooms();
+        return found.calcLowEnergyRooms(energy);
     }
 
-//    @GetMapping("/location/build{id}")
-//    public float getCalcTax(@PathVariable Long id) {
-//
-//        Location found = repository.findById();
-//        return found.calcTax();
-//    }
+    @GetMapping("/buildings/building{id}/floor{id2}/room{id3}/calcTax:{costPerM2}:{taxRate}")
+    public float calcTax(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3, @PathVariable int costPerM2, @PathVariable float taxRate) throws LocationNotFoundException  {
+        Location found = repository.findLocationById(id3);
+        if (!(found instanceof Room)) {
+            throw new LocationNotFoundException(id3);
+        }
+        return ((Room)found).calcTax(costPerM2, taxRate);
+    }
 }

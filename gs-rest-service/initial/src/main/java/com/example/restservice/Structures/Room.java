@@ -1,11 +1,11 @@
 package com.example.restservice.Structures;
 
 import javax.persistence.Entity;
+import java.util.ArrayList;
 
 /**
  * Class room contains all information about the room.
  */
-
 
 @Entity
 public class Room extends Location {
@@ -164,7 +164,7 @@ public class Room extends Location {
     @Override
     public float calcEnergy() { return (getHeating()/calcCube()); }
 
-
-
-
+    public float calcTax(int costPerM2, float taxRate) {
+        return costPerM2 * taxRate * calcArea();
+    }
 }

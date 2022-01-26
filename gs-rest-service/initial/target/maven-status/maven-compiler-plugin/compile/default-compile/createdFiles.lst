@@ -1,0 +1,10 @@
+com\example\restservice\RestServiceApplication.class
+com\example\restservice\BuildingRepository.class
+com\example\restservice\RestController.class
+com\example\restservice\Structures\Building.class
+com\example\restservice\LoadDatabase.class
+com\example\restservice\Structures\Location.class
+RestApiClient.class
+com\example\restservice\Structures\Floor.class
+com\example\restservice\Exceptions\LocationNotFoundException.class
+com\example\restservice\Structures\Room.class

@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.example.restservice"},{"l":"com.example.restservice.Exceptions"},{"l":"com.example.restservice.Structures"}];updateSearchResults();
