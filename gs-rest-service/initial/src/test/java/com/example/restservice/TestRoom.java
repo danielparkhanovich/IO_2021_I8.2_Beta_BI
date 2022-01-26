@@ -2,13 +2,25 @@ package com.example.restservice;
 
 import com.example.restservice.Structures.Building;
 import com.example.restservice.Structures.Floor;
+import com.example.restservice.Structures.Location;
 import com.example.restservice.Structures.Room;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
+import org.mockito.Mock;
 import java.util.ArrayList;
+import static org.mockito.Mockito.mock;
 
 public class TestRoom {
+
+    public static Location locationMock;
+
+
+
+
+
+
+
     @Test
     public void testingCalcCube1() {
         Room room = new Room("Room1", 25.6f, 70.3f, 140.24f, 123.2f );
@@ -114,5 +126,14 @@ public class TestRoom {
         Assertions.assertEquals(16.515625f,room.calcEnergy() );
 
     }
+
+//    @BeforeAll
+//    public static void initialize() {
+//
+//        BuildingOperations bo = new BuildingOperations();
+//        boMocked = new BuildingOperations();
+//
+//        locationMock = mock(Location.class);
+//        when(locationMock.calcTax()).thenReturn((float)5.0);
 
 }

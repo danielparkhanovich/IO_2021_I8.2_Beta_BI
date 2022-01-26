@@ -1,5 +1,6 @@
 package com.example.restservice;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.restservice.Exceptions.LocationNotFoundException;
@@ -15,13 +16,13 @@ public class RestController {
     private static RestController instance;
     public BuildingRepository repository;
 
-    public RestController(){
+    public RestController() {
         repository = new BuildingRepository();
         LoadDatabase.initDatabase(repository);
     }
 
-    public static RestController getInstance(){
-        if (instance == null){
+    public static RestController getInstance() {
+        if (instance == null) {
             instance = new RestController();
         }
         return instance;
@@ -42,7 +43,7 @@ public class RestController {
     @PostMapping("/buildings/build{id}")
     public Floor addFloor(@PathVariable Long id, @RequestBody Floor newFloor) {
         Building found = repository.findById(id);
-        if (found == null){
+        if (found == null) {
             throw new LocationNotFoundException(id);
         }
         found.getFloors().add(newFloor);
@@ -53,7 +54,7 @@ public class RestController {
     @PostMapping("/buildings/build{id}/floor{id2}")
     public Room addRoom(@PathVariable Long id, @PathVariable Long id2, @RequestBody Room newRoom) throws LocationNotFoundException {
         Location found = repository.findLocationById(id2);
-        if (!(found instanceof Floor)){
+        if (!(found instanceof Floor)) {
             throw new LocationNotFoundException(id2);
         }
         Floor floor = ((Floor) found);
@@ -64,7 +65,7 @@ public class RestController {
     @PutMapping("/buildings/build{id}")
     public Building updateBuilding(@PathVariable Long id, @RequestBody Building newBuilding) {
         Building found = repository.findById(id);
-        if (found == null){
+        if (found == null) {
             throw new LocationNotFoundException(id);
         }
         repository.update(id, newBuilding);
@@ -74,8 +75,7 @@ public class RestController {
     @PutMapping("/buildings/build{id}/floor{id2}")
     public Floor updateFloor(@PathVariable Long id, @PathVariable Long id2, @RequestBody Floor newFloor) throws LocationNotFoundException {
         Building buildingFound = repository.findById(id);
-        if (buildingFound == null)
-        {
+        if (buildingFound == null) {
             throw new LocationNotFoundException(id);
         }
         repository.update(id2, buildingFound, newFloor);
@@ -86,24 +86,21 @@ public class RestController {
     public Room updateRoom(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3, @RequestBody Room newRoom) throws LocationNotFoundException {
         Building buildingFound = repository.findById(id);
         Location found = repository.findLocationById(id2);
-        if (buildingFound == null)
-        {
+        if (buildingFound == null) {
             throw new LocationNotFoundException(id);
-        }
-        else if (found == null){
+        } else if (found == null) {
+            throw new LocationNotFoundException(id2);
+        } else if (!(found instanceof Floor)) {
             throw new LocationNotFoundException(id2);
         }
-        else if (!(found instanceof Floor)){
-            throw new LocationNotFoundException(id2);
-        }
-        repository.update(id3, buildingFound, (Floor)found, newRoom);
+        repository.update(id3, buildingFound, (Floor) found, newRoom);
         return (Room) repository.findLocationById(id3);
     }
 
     @GetMapping("/buildings/build{id}")
     public Building getBuilding(@PathVariable Long id) {
         Building found = repository.findById(id);
-        if (found == null){
+        if (found == null) {
             throw new LocationNotFoundException(id);
         }
         return found;
@@ -112,7 +109,7 @@ public class RestController {
     @GetMapping("/buildings/build{id}/floor{id2}")
     public Floor getFloor(@PathVariable Long id, @PathVariable Long id2) throws LocationNotFoundException {
         Location found = repository.findLocationById(id2);
-        if (!(found instanceof Floor)){
+        if (!(found instanceof Floor)) {
             throw new LocationNotFoundException(id2);
         }
         return (Floor) found;
@@ -121,7 +118,7 @@ public class RestController {
     @GetMapping("/buildings/build{id}/floor{id2}/room{id3}")
     public Room getRoom(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3) throws LocationNotFoundException {
         Location found = repository.findLocationById(id3);
-        if (!(found instanceof Room)){
+        if (!(found instanceof Room)) {
             throw new LocationNotFoundException(id3);
         }
         return (Room) found;
@@ -130,7 +127,7 @@ public class RestController {
     @GetMapping("/buildings/build{id}/floor{id2}/room{id3}area")
     public float getRoomArea(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3) throws LocationNotFoundException {
         Location found = repository.findLocationById(id3);
-        if (!(found instanceof Room)){
+        if (!(found instanceof Room)) {
             throw new LocationNotFoundException(id3);
         }
         return found.calcArea();
@@ -139,7 +136,7 @@ public class RestController {
     @GetMapping("/buildings/build{id}/floor{id2}area")
     public float getFloorArea(@PathVariable Long id, @PathVariable Long id2) throws LocationNotFoundException {
         Location found = repository.findLocationById(id2);
-        if (!(found instanceof Floor)){
+        if (!(found instanceof Floor)) {
             throw new LocationNotFoundException(id2);
         }
         return found.calcArea();
@@ -148,7 +145,7 @@ public class RestController {
     @GetMapping("/buildings/build{id}area")
     public float getBuildingArea(@PathVariable Long id) {
         Building found = repository.findById(id);
-        if (found == null){
+        if (found == null) {
             throw new LocationNotFoundException(id);
         }
         return found.calcArea();
@@ -157,7 +154,7 @@ public class RestController {
     @GetMapping("/buildings/build{id}/floor{id2}/room{id3}lightingPower")
     public float getRoomLightingPower(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3) throws LocationNotFoundException {
         Location found = repository.findLocationById(id3);
-        if (!(found instanceof Room)){
+        if (!(found instanceof Room)) {
             throw new LocationNotFoundException(id3);
         }
         return found.calcLightingPower();
@@ -166,7 +163,7 @@ public class RestController {
     @GetMapping("/buildings/build{id}/floor{id2}lightingPower")
     public float getFloorLightingPower(@PathVariable Long id, @PathVariable Long id2) throws LocationNotFoundException {
         Location found = repository.findLocationById(id2);
-        if (!(found instanceof Floor)){
+        if (!(found instanceof Floor)) {
             throw new LocationNotFoundException(id2);
         }
         return found.calcLightingPower();
@@ -175,16 +172,16 @@ public class RestController {
     @GetMapping("/buildings/build{id}lightingPower")
     public float getBuildingLightingPower(@PathVariable Long id) {
         Building found = repository.findById(id);
-        if (found == null){
+        if (found == null) {
             throw new LocationNotFoundException(id);
         }
         return found.calcLightingPower();
     }
-    
+
     @GetMapping("/buildings/build{id}/floor{id2}/room{id3}cube")
     public float getRoomCube(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3) throws LocationNotFoundException {
         Location found = repository.findLocationById(id3);
-        if (!(found instanceof Room)){
+        if (!(found instanceof Room)) {
             throw new LocationNotFoundException(id3);
         }
         return found.calcCube();
@@ -193,7 +190,7 @@ public class RestController {
     @GetMapping("/buildings/build{id}/floor{id2}cube")
     public float getFloorCube(@PathVariable Long id, @PathVariable Long id2) throws LocationNotFoundException {
         Location found = repository.findLocationById(id2);
-        if (!(found instanceof Floor)){
+        if (!(found instanceof Floor)) {
             throw new LocationNotFoundException(id2);
         }
         return found.calcCube();
@@ -202,7 +199,7 @@ public class RestController {
     @GetMapping("/buildings/build{id}cube")
     public float getBuildingCube(@PathVariable Long id) {
         Building found = repository.findById(id);
-        if (found == null){
+        if (found == null) {
             throw new LocationNotFoundException(id);
         }
         return found.calcCube();
@@ -212,7 +209,7 @@ public class RestController {
     @GetMapping("/buildings/build{id}/floor{id2}/room{id3}energy")
     public float getRoomEnergy(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3) throws LocationNotFoundException {
         Location found = repository.findLocationById(id3);
-        if (!(found instanceof Room)){
+        if (!(found instanceof Room)) {
             throw new LocationNotFoundException(id3);
         }
         return found.calcEnergy();
@@ -221,7 +218,7 @@ public class RestController {
     @GetMapping("/buildings/build{id}/floor{id2}energy")
     public float getFloorEnergy(@PathVariable Long id, @PathVariable Long id2) throws LocationNotFoundException {
         Location found = repository.findLocationById(id2);
-        if (!(found instanceof Floor)){
+        if (!(found instanceof Floor)) {
             throw new LocationNotFoundException(id2);
         }
         return found.calcEnergy();
@@ -230,13 +227,34 @@ public class RestController {
     @GetMapping("/buildings/build{id}energy")
     public float getBuildingEnergy(@PathVariable Long id) {
         Building found = repository.findById(id);
-        if (found == null){
+        if (found == null) {
             throw new LocationNotFoundException(id);
         }
         return found.calcEnergy();
     }
 
-//    @GetMapping("/buildings/")
-//    public float getHighEnergyRooms(@PathVariable Long id, )
+    @GetMapping("/buildings/build{id}/floor{id2}/room{id3}energy")
+    public ArrayList<Room> getHighEnergyRooms(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3){
+        Building found = repository.findById(id);
+        if (found == null) {
+            throw new LocationNotFoundException(id);
+        }
+        return found.getHighEnergyRooms();
+    }
 
+    @GetMapping("/buildings/build{id}/floor{id2}/room{id3}energy")
+    public ArrayList<Room> getLowEnergyRooms(@PathVariable Long id, @PathVariable Long id2, @PathVariable Long id3){
+        Building found = repository.findById(id);
+        if (found == null) {
+            throw new LocationNotFoundException(id);
+        }
+        return found.getLowEnergyRooms();
+    }
+
+//    @GetMapping("/location/build{id}")
+//    public float getCalcTax(@PathVariable Long id) {
+//
+//        Location found = repository.findById();
+//        return found.calcTax();
+//    }
 }

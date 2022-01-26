@@ -1,6 +1,7 @@
 package com.example.restservice.Structures;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 
 @Entity
 public abstract class Location {
@@ -53,4 +54,7 @@ public abstract class Location {
         return costPerM2 * taxRate * calcArea();
     }
 
+    public abstract ArrayList<Room> getHighEnergyRooms();
+
+    public abstract ArrayList<Room> getLowEnergyRooms();
 }
